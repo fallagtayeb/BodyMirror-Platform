@@ -119,6 +119,7 @@ def time_analysis(epochs_p):
     if task == "Visualize Collected Data":
         #tab1, tab2 = st.tabs([ "Time Analysis", "Frequency Analysis", "Time Frequency", "Pattern Recognition", "Source Localization"]) 
         st.title("Healthy Subjects")
+        evoked=evoked_p
         #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         fig1, anim_c3= evoked_h.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         #st.video(anim_c3)
