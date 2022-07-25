@@ -1,0 +1,21 @@
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    jsmith:
+      email: jsmith@gmail.com
+      name: John Smith
+      password: 123
+    rbriggs:
+      email: rbriggs@gmail.com
+      name: Rebecca Briggs
+      password: 456
+    zied_tayeb:
+      email: zied.tayeb@myelinh.com
+      name: Zied Tayeb
+      password: $2b$12$NsHVyU/cOjpIFBCZ/rAgCeUb8eLpnVn8W7svzRUqcbBPijbdU2SVG
+preauthorized:
+  emails:
+  - melsby@gmail.com
