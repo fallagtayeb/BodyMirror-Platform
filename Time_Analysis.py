@@ -96,7 +96,7 @@ import matplotlib.animation as animation
 
 def time_analysis(epochs_p):
 
-    epochs_h=mne.read_epochs("epochs_h.fif")
+    epochs_h=epochs_p
 
     evoked_h = epochs_h.average()
     evoked_h.apply_proj()
