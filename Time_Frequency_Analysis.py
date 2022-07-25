@@ -2,11 +2,7 @@ import streamlit as st
 #from streamlit.hashing import _CodeHasher
 from streamlit.legacy_caching.hashing import _CodeHasher
 
-# Get a reference to the auth service
-import pyrebase
-import json
-from firebase import firebase
-from getpass import getpass
+
 
 import warnings
 import matplotlib.pyplot as plt
