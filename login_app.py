@@ -1,6 +1,5 @@
 # Get a reference to the auth service
 import streamlit as st
-
 import json
 
 from  streamlit.legacy_caching.hashing import _CodeHasher
