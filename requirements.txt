@@ -121,7 +121,7 @@ SQLAlchemy==1.4.27
 sqlparse==0.4.2
 statsmodels==0.12.2
 stqdm==0.0.4
-streamlit==1.10.0
+streamlit==1.11.0
 tables==3.6.1
 trycourier==4.2.0
 twilio==7.9.3
