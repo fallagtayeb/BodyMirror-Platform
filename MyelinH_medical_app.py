@@ -7,11 +7,7 @@ st.set_page_config(page_title="BodyMirror-Platform", page_icon=img)
 
 
 from  streamlit.legacy_caching.hashing import _CodeHasher
-# Get a reference to the auth service
-#import pyrebase
-import json
-#from firebase import firebase
-from getpass import getpass
+
 from streamlit.scriptrunner import get_script_run_ctx as get_report_ctx
 import warnings
 import matplotlib.pyplot as plt
@@ -61,7 +57,7 @@ from PIL import Image
 import base64
 
 import extra_streamlit_components as stx
-import text_to_speech
+
 import read_data
 
 
