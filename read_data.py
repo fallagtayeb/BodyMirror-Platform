@@ -1,12 +1,8 @@
-import pygds as g
+
 import os
-import warnings
-warnings.filterwarnings("ignore")
-import sys, os, os.path
-sys.path.append('/BodyMirror')
+
 import numpy as np
-import BodyMirror
-print ('Welcome to BodyMirror version {}'.format (BodyMirror.version.__version__))
+
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from sklearn.utils import shuffle
@@ -16,24 +12,15 @@ from sklearn.model_selection import cross_validate
 from datetime import datetime
 import streamlit as st
 import time
-import pyrebase
+
 import json
-from firebase import firebase
-from getpass import getpass
+
 from time import sleep
 import streamlit as st
 import codecs, json
 from stqdm import stqdm
 
-import pygds as g
-import os
-import warnings
-warnings.filterwarnings("ignore")
-import sys, os, os.path
-sys.path.append('/BodyMirror')
-import numpy as np
-import BodyMirror
-print ('Welcome to BodyMirror version {}'.format (BodyMirror.version.__version__))
+
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from sklearn.utils import shuffle
@@ -42,11 +29,9 @@ from sklearn.model_selection import RepeatedKFold
 from sklearn.model_selection import cross_validate
 from datetime import datetime
 import streamlit as st
-import time
-import pyrebase
+
 import json
-from firebase import firebase
-from getpass import getpass
+
 from time import sleep
 import streamlit as st
 import codecs, json
@@ -98,7 +83,7 @@ from mne.decoding import (SlidingEstimator, GeneralizingEstimator, Scaler,
                           Vectorizer, CSP)
 #%matplotlib qt
 from pylab import rcParams
-rcParams['figure.figsize'] = 12, 8
+
 #import tensorflow as tf
 #from tensorflow.python.lib.io import file_io
 #import myelinh_functions
