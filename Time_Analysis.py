@@ -123,7 +123,7 @@ def time_analysis(epochs_p):
         #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         fig1, anim_c3= evoked_h.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         #st.video(anim_c3)
-        anim_c3.save(r'Animation1.mp4')
+        #anim_c3.save(r'Animation1.mp4')
         #HtmlFile = line_ani.to_html5_video()
         with open("myvideo.html","w") as f:
             print(anim_c3.to_html5_video(), file=f)
@@ -137,7 +137,7 @@ def time_analysis(epochs_p):
         #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         fig1, anim_c4= evoked_p.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         #st.video(anim_c3)
-        anim_c4.save(r'Animation2.mp4')
+        #anim_c4.save(r'Animation2.mp4')
         #HtmlFile = line_ani.to_html5_video()
         with open("myvideo.html","w") as f:
             print(anim_c4.to_html5_video(), file=f)
