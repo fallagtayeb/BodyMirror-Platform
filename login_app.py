@@ -1,9 +1,8 @@
 # Get a reference to the auth service
 import streamlit as st
-import pyrebase
+
 import json
-from firebase import firebase
-from getpass import getpass
+
 from  streamlit.legacy_caching.hashing import _CodeHasher
 #import myelinh_functions
 with open('myelin-h-authentification-firebase-adminsdk-1eqje-c91381fc52.json') as json_file:
