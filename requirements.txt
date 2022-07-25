@@ -1,7 +1,5 @@
 aiohttp==3.8.1
 mpld3
-streamlit.components.v1
-matplotlib.animation
 streamlit_authenticator
 aiosignal==1.2.0
 altair==4.2.0
