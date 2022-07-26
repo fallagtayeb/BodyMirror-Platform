@@ -3,7 +3,7 @@ import streamlit as st
 from streamlit.legacy_caching.hashing import _CodeHasher
 import ffmpeg
 
-
+plt.rcParams["animation.html"] = "html5_video"
 import warnings
 import matplotlib.pyplot as plt
 
