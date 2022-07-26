@@ -122,10 +122,11 @@ def time_analysis(epochs_p):
         evoked=evoked_p
         #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         fig1, anim_c3= evoked_h.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
-        Writer = animation.writers['pillow']
-        writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
-        #st.video(anim_c3)
-        print(anim_c3.to_html5_video())
+        #Writer = animation.writers['pillow']
+        #writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+        st.video(anim_c3)
+        components.html(anim_c3.to_jshtml(), height=1000)
+        #print(anim_c3.to_html5_video())
 
 
         HtmlFile = open("myvideo.html", "r")
