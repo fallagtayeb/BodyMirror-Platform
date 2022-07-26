@@ -91,6 +91,7 @@ import streamlit.components.v1 as components
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+!pip install ffmpeg
 
 #import myelinh_functions
 #import text_to_speech
