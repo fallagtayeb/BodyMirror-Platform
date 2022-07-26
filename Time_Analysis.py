@@ -128,10 +128,11 @@ def time_analysis(epochs_p):
 
         
         #anim_c3.save(r'Animation1.mp4')
-        out = HTML(ani.to_html5_video())
         #Writer = animation.writers['pillow']
         #writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
         #st.video(anim_c3)
+        with open("myvideo.html","w") as f:
+            print(anim_c3.to_html5_video(), file=f)
         
     
 
@@ -139,7 +140,6 @@ def time_analysis(epochs_p):
         #HtmlFile="myvideo.html"
         source_code = HtmlFile.read() 
         components.html(source_code, height = 900,width=900)
-        components.html(anim_c3.to_html5_video(), height=1000)
         components.html(anim_c3.to_jshtml(), height=1000)
         #print(anim_c3.to_html5_video())
 
