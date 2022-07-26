@@ -125,8 +125,7 @@ def time_analysis(epochs_p):
         Writer = animation.writers['pillow']
         writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
         #st.video(anim_c3)
-        with open("myvideo.html","w") as f:
-            print(anim_c3.to_html5_video(), file=f)
+        print(anim_c3.to_html5_video())
 
 
         HtmlFile = open("myvideo.html", "r")
@@ -140,8 +139,9 @@ def time_analysis(epochs_p):
         #st.video(anim_c3)
         #anim_c4.save(r'Animation2.mp4')
         HtmlFile = line_ani.to_html5_video()
-        with open("myvideo.html","w") as f:
-            print(anim_c4.to_html5_video(), file=f)
+        print(anim_c4.to_html5_video())
+        #with open("myvideo.html","w") as f:
+            #print(anim_c4.to_html5_video(), file=f)
 
         HtmlFile = open("myvideo.html", "r")
         #HtmlFile="myvideo.html"
