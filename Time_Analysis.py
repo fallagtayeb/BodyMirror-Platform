@@ -123,7 +123,12 @@ def time_analysis(epochs_p):
         evoked=evoked_p
         #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
         fig1, anim_c3= evoked_h.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
-        anim_c3.save(r'Animation1.mp4')
+        from matplotlib.animation import FuncAnimation, PillowWriter
+        Writer = animation.FFMpegWriter(fps=30, codec='libx264')  #or 
+
+        
+        #anim_c3.save(r'Animation1.mp4')
+        out = HTML(ani.to_html5_video())
         #Writer = animation.writers['pillow']
         #writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
         #st.video(anim_c3)
