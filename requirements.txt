@@ -1,4 +1,5 @@
 aiohttp==3.8.1
+ffmpeg-python
 mpld3
 streamlit_authenticator
 aiosignal==1.2.0
