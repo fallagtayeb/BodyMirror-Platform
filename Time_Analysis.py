@@ -120,8 +120,7 @@ def time_analysis_p(epochs_p):
         #st.video(anim_c3)
         #anim_c3.save(r'Animation1.mp4')
         #HtmlFile = line_ani.to_html5_video()
-        source_code = HtmlFile.read() 
-        components.html(source_code, height = 900,width=900)
+
         components.html(anim_c3.to_jshtml(), height=1000)
 
 
@@ -226,8 +225,7 @@ def time_analysis_h(epochs_h):
             #st.video(anim_c3)
             #anim_c3.save(r'Animation1.mp4')
             #HtmlFile = line_ani.to_html5_video()
-            source_code = HtmlFile.read() 
-            components.html(source_code, height = 900,width=900)
+
             components.html(anim_c3.to_jshtml(), height=1000)
 
 
