@@ -95,19 +95,13 @@ from IPython.display import HTML
 
 #import myelinh_functions
 #import text_to_speech
-
-def time_analysis(epochs_p):
-
-    epochs_h=epochs_p
-
-    evoked_h = epochs_h.average()
-    evoked_h.apply_proj()
+def time_analysis_p(epochs_p):
 
     evoked_p = epochs_p.average()
     evoked_p.apply_proj()
 
 
-    task = st.selectbox('Select Task', ['', "Visualize Collected Data", "Topographic Maps", "Analyze Specific Electrodes", "Temporal Analysis"])
+    task1 = st.selectbox('Select Task', ['', "Visualize Collected Data", "Topographic Maps", "Analyze Specific Electrodes", "Temporal Analysis"], key="1111111232")
 
     times1=[0, 0.015, 0.020, 0.025, 0.030, 0.035, 0.040, 0.045, 0.050, 
             0.060, 0.065, 0.070, 0.075, 0.080, 0.085, 0.090, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.2, 0.21, .22, 0.25, 0.28, 0.35]
@@ -118,49 +112,16 @@ def time_analysis(epochs_p):
 
 
     #set_png_as_page_bg('2.jpg')
-    if task == "Visualize Collected Data":
+    if task1 == "Visualize Collected Data":
         #tab1, tab2 = st.tabs([ "Time Analysis", "Frequency Analysis", "Time Frequency", "Pattern Recognition", "Source Localization"]) 
-        st.title("Healthy Subjects")
-        evoked=evoked_p
+        #st.title("Health S")
         #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
-        fig1, anim_c3= evoked_h.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
-        from matplotlib.animation import FuncAnimation, PillowWriter
-        Writer = animation.FFMpegWriter(fps=30, codec='libx264')  #or 
-
-        
+        fig1, anim_c3= evoked_p.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
+        #st.video(anim_c3)
         #anim_c3.save(r'Animation1.mp4')
-        #Writer = animation.writers['pillow']
-        #writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
-        #st.video(anim_c3)
-        anim_c3.save('the_movie.mp4', writer = 'mencoder', fps=15)
-        html = anim_c3.to_html5_video()
-        HTML(html)
-   
-        
-    
-
-        HtmlFile = open("myvideo.html", "r")
-        #HtmlFile="myvideo.html"
-        source_code = HtmlFile.read() 
-        components.html(source_code, height = 900,width=900)
-        components.html(anim_c3.to_jshtml(), height=1000)
-        #print(anim_c3.to_html5_video())
-
-
-        HtmlFile = open("myvideo.html", "r")
-        #HtmlFile="myvideo.html"
-        source_code = HtmlFile.read() 
-        components.html(source_code, height = 900,width=900)
-
-        st.title("Patients")
-        #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
-        fig1, anim_c4= evoked_p.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
-        #st.video(anim_c3)
-        #anim_c4.save(r'Animation2.mp4')
-        HtmlFile = line_ani.to_html5_video()
-        print(anim_c4.to_html5_video())
-        #with open("myvideo.html","w") as f:
-            #print(anim_c4.to_html5_video(), file=f)
+        #HtmlFile = line_ani.to_html5_video()
+        with open("myvideo.html","w") as f:
+            print(anim_c3.to_html5_video(), file=f)
 
         HtmlFile = open("myvideo.html", "r")
         #HtmlFile="myvideo.html"
@@ -168,15 +129,10 @@ def time_analysis(epochs_p):
         components.html(source_code, height = 900,width=900)
 
 
-    if task=="Topographic Maps":
-        col1, col2 = st.columns([1,1])
 
-        with col1:
-             but1 = st.button('Patient', key="1")
-        with col2:
-             but2 = st.button('Healthy', key="2")
+    if task1=="Topographic Maps":
           #wargs={vmin= -5.0, vmax=5}
-        if but1 is True:
+
             evoked_p.plot_topomap( cmap='Spectral_r', res=32,
                             outlines='skirt', contours=4, )
             times=[0.015, 0.020, 0.025, 0.030, 0.035, 0.040, 0.045, 0.050 ]
@@ -194,33 +150,10 @@ def time_analysis(epochs_p):
                             outlines='skirt', contours=4,)
             st.pyplot(fig5)
 
-        if but2 is True:
-            evoked_h.plot_topomap( cmap='Spectral_r', res=32,
-                            outlines='skirt', contours=4, )
-            times=[0.015, 0.020, 0.025, 0.030, 0.035, 0.040, 0.045, 0.050 ]
-            #fig2 = plt.figure(figsize=(6, 2))
-            fig3=evoked_h.plot_topomap(times=times, ch_type='eeg', cmap='Spectral_r', res=32,
-                            outlines='skirt', contours=4,)
-            st.pyplot(fig3)
-            #fig3 = plt.figure(figsize=(6, 2))
-            times=[0.060, 0.065, 0.070, 0.075, 0.080, 0.085, 0.090, 0.095, 0.1]
-            fig4=evoked_h.plot_topomap(times=times, ch_type='eeg', cmap='Spectral_r', res=32,
-                            outlines='skirt', contours=4,)
-            st.pyplot(fig4)
-            times=[0.11, 0.12, 0.013, 0.14, 0.15, 0.16, 0.17, 0.18, 0.2, 0.25, 0.3]
-            fig5=evoked_h.plot_topomap(times=times, ch_type='eeg', cmap='Spectral_r', res=32,
-                            outlines='skirt', contours=4,)
-            st.pyplot(fig5)
 
-    if task =="Analyze Specific Electrodes": 
-        col1, col2 = st.columns([1,1])
+    if task1 =="Analyze Specific Electrodes": 
 
-        with col1:
-             but1 = st.button('Patient', key="1")
-        with col2:
-             but2 = st.button('Healthy', key="2")
           #wargs={vmin= -5.0, vmax=5}
-        if but1 is True:
             #st.write("FCz") 
             fig11=evoked_p.plot_image(picks=[ 'FC1'])
             st.write("FC1") 
@@ -257,54 +190,123 @@ def time_analysis(epochs_p):
             st.write("Pz") 
             st.pyplot (fig119)
 
-        if but2 is True:
-            #st.write("FCz") 
-            fig11=evoked_h.plot_image(picks=[ 'FC1'])
-            st.write("FC1") 
-            st.pyplot (fig11)
+      
 
-            fig112=evoked_h.plot_image(picks=[ 'FCz'])
-            st.write("FCz") 
-            st.pyplot (fig112)
-
-            fig113=evoked_h.plot_image(picks=[ 'FC2'])
-            st.write("FC2") 
-            st.pyplot (fig113)
-
-            fig114=evoked_h.plot_image(picks=[ 'C3'])
-            st.write("C3") 
-            st.pyplot (fig114)
-
-            fig115=evoked_h.plot_image(picks=[ 'C4'])
-            st.write("C4") 
-            st.pyplot (fig115)
-
-            fig116=evoked_h.plot_image(picks=[ 'Cz'])
-            st.write("Cz") 
-            st.pyplot (fig116)
-
-            fig117=evoked_h.plot_image(picks=[ 'P3'])
-            st.write("P3") 
-            st.pyplot (fig117)
-            fig118=evoked_h.plot_image(picks=[ 'P4'])
-            st.write("P4") 
-            st.pyplot (fig118)
-
-            fig119=evoked_h.plot_image(picks=[ 'Pz'])
-            st.write("Pz") 
-            st.pyplot (fig119)
-
-    if task =="Temporal Analysis": 
-        st.title("Patients")
+    if task1 =="Temporal Analysis": 
+        #st.title("Patients")
         fig21=evoked_p.plot(picks='eeg', spatial_colors=True, gfp=True)
         st.pyplot(fig21)
-        st.title("Healthy")
-
-        fig22=evoked_h.plot(picks='eeg', spatial_colors=True, gfp=True)
-        st.pyplot(fig22)
         st.title("Patients - Peaks")
         fig223=evoked_p.plot_joint(times='peaks')
         st.pyplot(fig223)
-        st.title("Healthy - Peaks")
-        fig224=evoked_h.plot_joint(times='peaks')
-        st.pyplot(fig224)
+
+
+def time_analysis_h(epochs_h):
+    if epochs_h is None:
+        st.warnings("Data has not been uploaded") 
+    else: 
+        epochs_p=epochs_h
+
+        evoked_p = epochs_p.average()
+        evoked_p.apply_proj()
+
+
+        task2 = st.selectbox('Select Task', ['', "Visualize Collected Data", "Topographic Maps", "Analyze Specific Electrodes", "Temporal Analysis"], key="12325")
+
+        times1=[0, 0.015, 0.020, 0.025, 0.030, 0.035, 0.040, 0.045, 0.050, 
+                0.060, 0.065, 0.070, 0.075, 0.080, 0.085, 0.090, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.2, 0.21, .22, 0.25, 0.28, 0.35]
+
+
+
+        #state = _get_state()
+
+
+        #set_png_as_page_bg('2.jpg')
+        if task2 == "Visualize Collected Data":
+            #tab1, tab2 = st.tabs([ "Time Analysis", "Frequency Analysis", "Time Frequency", "Pattern Recognition", "Source Localization"]) 
+            #st.title("Health S")
+            #fig1, anim_c3= evoked.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
+            fig1, anim_c3= evoked_p.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
+            #st.video(anim_c3)
+            #anim_c3.save(r'Animation1.mp4')
+            #HtmlFile = line_ani.to_html5_video()
+            with open("myvideo.html","w") as f:
+                print(anim_c3.to_html5_video(), file=f)
+
+            HtmlFile = open("myvideo.html", "r")
+            #HtmlFile="myvideo.html"
+            source_code = HtmlFile.read() 
+            components.html(source_code, height = 900,width=900)
+
+
+
+        if task2=="Topographic Maps":
+              #wargs={vmin= -5.0, vmax=5}
+
+                evoked_p.plot_topomap( cmap='Spectral_r', res=32,
+                                outlines='skirt', contours=4, )
+                times=[0.015, 0.020, 0.025, 0.030, 0.035, 0.040, 0.045, 0.050 ]
+                #fig2 = plt.figure(figsize=(6, 2))
+                fig3=evoked_p.plot_topomap(times=times, ch_type='eeg', cmap='Spectral_r', res=32,
+                                outlines='skirt', contours=4,)
+                st.pyplot(fig3)
+                #fig3 = plt.figure(figsize=(6, 2))
+                times=[0.060, 0.065, 0.070, 0.075, 0.080, 0.085, 0.090, 0.095, 0.1]
+                fig4=evoked_p.plot_topomap(times=times, ch_type='eeg', cmap='Spectral_r', res=32,
+                                outlines='skirt', contours=4,)
+                st.pyplot(fig4)
+                times=[0.11, 0.12, 0.013, 0.14, 0.15, 0.16, 0.17, 0.18, 0.2, 0.25, 0.3]
+                fig5=evoked_p.plot_topomap(times=times, ch_type='eeg', cmap='Spectral_r', res=32,
+                                outlines='skirt', contours=4,)
+                st.pyplot(fig5)
+
+
+        if task2 =="Analyze Specific Electrodes": 
+
+              #wargs={vmin= -5.0, vmax=5}
+                #st.write("FCz") 
+                fig11=evoked_p.plot_image(picks=[ 'FC1'])
+                st.write("FC1") 
+                st.pyplot (fig11)
+
+                fig112=evoked_p.plot_image(picks=[ 'FCz'])
+                st.write("FCz") 
+                st.pyplot (fig112)
+
+                fig113=evoked_p.plot_image(picks=[ 'FC2'])
+                st.write("FC2") 
+                st.pyplot (fig113)
+
+                fig114=evoked_p.plot_image(picks=[ 'C3'])
+                st.write("C3") 
+                st.pyplot (fig114)
+
+                fig115=evoked_p.plot_image(picks=[ 'C4'])
+                st.write("C4") 
+                st.pyplot (fig115)
+
+                fig116=evoked_p.plot_image(picks=[ 'Cz'])
+                st.write("Cz") 
+                st.pyplot (fig116)
+
+                fig117=evoked_p.plot_image(picks=[ 'P3'])
+                st.write("P3") 
+                st.pyplot (fig117)
+                fig118=evoked_p.plot_image(picks=[ 'P4'])
+                st.write("P4") 
+                st.pyplot (fig118)
+
+                fig119=evoked_p.plot_image(picks=[ 'Pz'])
+                st.write("Pz") 
+                st.pyplot (fig119)
+
+
+
+        if task2 =="Temporal Analysis": 
+            #st.title("Patients")
+            fig21=evoked_p.plot(picks='eeg', spatial_colors=True, gfp=True)
+            st.pyplot(fig21)
+            st.title("Patients - Peaks")
+            fig223=evoked_p.plot_joint(times='peaks')
+            st.pyplot(fig223)
+
