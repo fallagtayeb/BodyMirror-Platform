@@ -142,9 +142,9 @@ def data_read():
                           st.write("done")
                             #import Pattern_Recognition
                         with tab5:
+                           st.write("done")
 
-                            #import Source_Localization
-                            
+                            #import Source_Localization  
                     with tab22:
                         st.header("Control Subject")
                         uploaded_file1 = st.file_uploader("Choose a file of your control subject")
