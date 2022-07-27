@@ -133,14 +133,17 @@ def data_read():
                             import Time_Analysis
                             Time_Analysis.time_analysis_p(epochs_data)
                         with tab2:
-                            import Frequency_Analysis
+                          st.write("done")
+                            #import Frequency_Analysis
                         with tab3:
-                            import Time_Frequency_Analysis
+                          st.write("done")
+                            #import Time_Frequency_Analysis
                         with tab4:
-                            import Pattern_Recognition
+                          st.write("done")
+                            #import Pattern_Recognition
                         with tab5:
 
-                            import Source_Localization
+                            #import Source_Localization
                             
                     with tab22:
                         st.header("Control Subject")
