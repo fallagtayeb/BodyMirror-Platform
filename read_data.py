@@ -163,14 +163,18 @@ def data_read():
                                 import Time_Analysis
                                 Time_Analysis.time_analysis_h(epochs_data1)
                             with tab24:
-                                import Frequency_Analysis
+                              st.write("done")
+                                #import Frequency_Analysis
                             with tab34:
-                                import Time_Frequency_Analysis
+                              st.write("done")
+                                #import Time_Frequency_Analysis
                             with tab44:
-                                import Pattern_Recognition
+                              st.write("done")
+                                #import Pattern_Recognition
                             with tab54:
+                              st.write("done")
 
-                                import Source_Localization
+                                #import Source_Localization
                         else:
                             epochs_data1=epochs_data
                             info1=info 
