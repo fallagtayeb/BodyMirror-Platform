@@ -74,6 +74,30 @@ from mne.datasets import sample
 from mne.decoding import (SlidingEstimator, GeneralizingEstimator, Scaler,
                           cross_val_multiscore, LinearModel, get_coef,
                           Vectorizer, CSP)
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+
+import mne
+from mne.datasets import sample
+from mne.decoding import (SlidingEstimator, GeneralizingEstimator, Scaler,
+                          cross_val_multiscore, LinearModel, get_coef,
+                          Vectorizer, CSP)
+
+from mne.decoding import (SlidingEstimator, GeneralizingEstimator, Scaler,
+                          cross_val_multiscore, LinearModel, get_coef,
+                          Vectorizer, CSP)
+# features, so the resulting filters used are spatio-temporal
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+
+import mne
+from mne.datasets import sample
+from mne.decoding import (SlidingEstimator, GeneralizingEstimator, Scaler,
+                          cross_val_multiscore, LinearModel, get_coef,
+                          Vectorizer, CSP)
+
 #%matplotlib qt
 from pylab import rcParams
 #import tensorflow as tf
@@ -120,7 +144,6 @@ def time_analysis_p(epochs_p):
         #st.video(anim_c3)
         #anim_c3.save(r'Animation1.mp4')
         #HtmlFile = line_ani.to_html5_video()
-
         components.html(anim_c3.to_jshtml(), height=1000)
 
 
@@ -224,8 +247,6 @@ def time_analysis_h(epochs_h):
             fig1, anim_c3= evoked_p.animate_topomap('eeg', times=times1, blit=False, frame_rate=1)
             #st.video(anim_c3)
             #anim_c3.save(r'Animation1.mp4')
-            #HtmlFile = line_ani.to_html5_video()
-
             components.html(anim_c3.to_jshtml(), height=1000)
 
 
@@ -299,4 +320,3 @@ def time_analysis_h(epochs_h):
             st.title("Patients - Peaks")
             fig223=evoked_p.plot_joint(times='peaks')
             st.pyplot(fig223)
-
